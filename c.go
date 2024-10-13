@@ -14,17 +14,17 @@ func (i *CImpl) SetC(c int) {
 	i.c = c
 }
 
-type CApply interface {
+type COption interface {
 	ApplyC(C)
 }
 
-type COption func(C)
+type COptionFunc func(C)
 
-func (f COption) ApplyC(c C) {
+func (f COptionFunc) ApplyC(c C) {
 	f(c)
 }
 
-func SetC(in int) COption {
+func SetC(in int) COptionFunc {
 	return func(c C) {
 		c.SetC(in)
 	}

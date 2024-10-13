@@ -12,27 +12,27 @@ func (i *AImpl) SetA(a int) {
 	i.a = a
 }
 
-type AApply interface {
+type AOption interface {
 	ApplyA(A)
 	ApplyB(B)
 	ApplyC(C)
 }
 
-type AOption func(A)
+type AOptionFunc func(A)
 
-func (f AOption) ApplyA(a A) {
+func (f AOptionFunc) ApplyA(a A) {
 	f(a)
 }
 
-func (f AOption) ApplyB(b B) {
+func (f AOptionFunc) ApplyB(b B) {
 	f(b)
 }
 
-func (f AOption) ApplyC(c C) {
+func (f AOptionFunc) ApplyC(c C) {
 	f(c)
 }
 
-func SetA(in int) AOption {
+func SetA(in int) AOptionFunc {
 	return func(a A) {
 		a.SetA(in)
 	}

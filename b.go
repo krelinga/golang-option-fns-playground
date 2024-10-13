@@ -14,21 +14,21 @@ func (i *BImpl) SetB(b int) {
 	i.b = b
 }
 
-type BApply interface {
+type BOption interface {
 	ApplyB(B)
 }
 
-type BOption func(B)
+type BOptionFunc func(B)
 
-func (f BOption) ApplyB(b B) {
+func (f BOptionFunc) ApplyB(b B) {
 	f(b)
 }
 
-func (f BOption) ApplyC(c C) {
+func (f BOptionFunc) ApplyC(c C) {
 	f(c)
 }
 
-func SetB(in int) BOption {
+func SetB(in int) BOptionFunc {
 	return func(b B) {
 		b.SetB(in)
 	}
