@@ -14,8 +14,7 @@ func (i *AImpl) SetA(a int) {
 
 type AOption interface {
 	ApplyToA(A)
-	ApplyToB(B)
-	ApplyToC(C)
+	BOption
 }
 
 type AOptionFunc func(A)

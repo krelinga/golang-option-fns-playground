@@ -16,6 +16,7 @@ func (i *BImpl) SetB(b int) {
 
 type BOption interface {
 	ApplyToB(B)
+	COption
 }
 
 type BOptionFunc func(B)
