@@ -12,7 +12,9 @@ func (i *AImpl) SetA(a int) {
 	i.a = a
 }
 
-func SetA(in int) func(A) {
+type AOption func(A)
+
+func SetA(in int) AOption {
 	return func(a A) {
 		a.SetA(in)
 	}

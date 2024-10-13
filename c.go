@@ -14,7 +14,9 @@ func (i *CImpl) SetC(c int) {
 	i.c = c
 }
 
-func SetC(in int) func(C) {
+type COption func(C)
+
+func SetC(in int) COption {
 	return func(c C) {
 		c.SetC(in)
 	}

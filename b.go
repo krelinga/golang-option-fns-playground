@@ -14,7 +14,9 @@ func (i *BImpl) SetB(b int) {
 	i.b = b
 }
 
-func SetB(in int) func(B) {
+type BOption func(B)
+
+func SetB(in int) BOption {
 	return func(b B) {
 		b.SetB(in)
 	}

@@ -4,11 +4,11 @@ func CWithAnySettings(settings ...any) *CImpl {
 	c := &CImpl{}
 	for _, s := range settings {
 		switch s := s.(type) {
-		case func(A):
+		case AOption:
 			s(c)
-		case func(B):
+		case BOption:
 			s(c)
-		case func(C):
+		case COption:
 			s(c)
 		default:
 			panic("unknown setting")
