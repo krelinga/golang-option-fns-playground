@@ -13,22 +13,22 @@ func (i *AImpl) SetA(a int) {
 }
 
 type AOption interface {
-	ApplyA(A)
-	ApplyB(B)
-	ApplyC(C)
+	ApplyToA(A)
+	ApplyToB(B)
+	ApplyToC(C)
 }
 
 type AOptionFunc func(A)
 
-func (f AOptionFunc) ApplyA(a A) {
+func (f AOptionFunc) ApplyToA(a A) {
 	f(a)
 }
 
-func (f AOptionFunc) ApplyB(b B) {
+func (f AOptionFunc) ApplyToB(b B) {
 	f(b)
 }
 
-func (f AOptionFunc) ApplyC(c C) {
+func (f AOptionFunc) ApplyToC(c C) {
 	f(c)
 }
 

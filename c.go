@@ -15,12 +15,12 @@ func (i *CImpl) SetC(c int) {
 }
 
 type COption interface {
-	ApplyC(C)
+	ApplyToC(C)
 }
 
 type COptionFunc func(C)
 
-func (f COptionFunc) ApplyC(c C) {
+func (f COptionFunc) ApplyToC(c C) {
 	f(c)
 }
 

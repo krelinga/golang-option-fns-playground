@@ -20,7 +20,7 @@ func CWithAnySettings(settings ...any) *CImpl {
 func CWithTypedSettings(settings ...COption) *CImpl {
 	c := &CImpl{}
 	for _, s := range settings {
-		s.ApplyC(c)
+		s.ApplyToC(c)
 	}
 	return c
 }
@@ -28,7 +28,7 @@ func CWithTypedSettings(settings ...COption) *CImpl {
 func BWithTypedSettings(settings ...BOption) *BImpl {
 	b := &BImpl{}
 	for _, s := range settings {
-		s.ApplyB(b)
+		s.ApplyToB(b)
 	}
 	return b
 }

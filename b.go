@@ -15,16 +15,16 @@ func (i *BImpl) SetB(b int) {
 }
 
 type BOption interface {
-	ApplyB(B)
+	ApplyToB(B)
 }
 
 type BOptionFunc func(B)
 
-func (f BOptionFunc) ApplyB(b B) {
+func (f BOptionFunc) ApplyToB(b B) {
 	f(b)
 }
 
-func (f BOptionFunc) ApplyC(c C) {
+func (f BOptionFunc) ApplyToC(c C) {
 	f(c)
 }
 
